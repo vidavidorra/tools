@@ -1,7 +1,7 @@
 {
-  "name": "repo-template",
-  "version": "1.0.5",
-  "description": "A template for creating new repositories.",
+  "name": "tools",
+  "version": "0.1.0",
+  "description": "Collection of tools.",
   "private": true,
   "scripts": {
     "lint": "concurrently npm:lint-es",
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vidavidorra/repo-template.git"
+    "url": "git+https://github.com/vidavidorra/tools.git"
   },
   "author": "Jeroen de Bruijn",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/vidavidorra/repo-template/issues"
+    "url": "https://github.com/vidavidorra/tools/issues"
   },
-  "homepage": "https://github.com/vidavidorra/repo-template#readme",
+  "homepage": "https://github.com/vidavidorra/tools#readme",
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
