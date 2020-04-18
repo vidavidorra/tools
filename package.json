@@ -23,7 +23,9 @@
     "buffer-converter": "node_modules/.bin/ts-node src/buffer-converter/cli",
     "tools:bc": "npm run buffer-converter",
     "hex-string-converter": "node_modules/.bin/ts-node src/hex-string-converter/cli",
-    "tools:hsc": "npm run hex-string-converter"
+    "tools:hsc": "npm run hex-string-converter",
+    "map-gnu-symbol": "node_modules/.bin/ts-node src/map-gnu-symbol/cli",
+    "tools:mgs": "npm run map-gnu-symbol"
   },
   "repository": {
     "type": "git",
