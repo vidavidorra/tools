@@ -127,9 +127,9 @@ The absolute origin for the logo is at the top left corner. The two sections of 
 
 ## Double V
 
-This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the step numbers in the logo.
+This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the point numbers in the logo.
 
-| step       | horizontal (`x`)       | vertical (`y`) |
+| point      | horizontal (`x`)       | vertical (`y`) |
 | ---------- | ---------------------- | -------------- |
 | 1 (origin) | $0$                    | $0$            |
 | 2          | $\frac{H}{2}$          | $H$            |
@@ -190,9 +190,9 @@ This table describes the construction of the double `V`, denoted by the non-dott
 
 ## Single V
 
-This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the step numbers in the logo.
+This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the point numbers in the logo.
 
-| step       | horizontal (`x`) | vertical (`y`) |
+| point      | horizontal (`x`) | vertical (`y`) |
 | ---------- | ---------------- | -------------- |
 | 1 (origin) | $3HS$            | $2T$           |
 | 2          | $\frac{H}{2}$    | $H - 2VS$      |
