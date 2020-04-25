@@ -1,5 +1,6 @@
 import * as validator from '../helpers/validator';
 import { VidavidorraLogo } from './vidavidorra-logo';
+import chalk from 'chalk';
 import inquirer from 'inquirer';
 
 interface Arguments {
@@ -39,8 +40,13 @@ const questions = [
   },
 ];
 
+const ui = new inquirer.ui.BottomBar();
+
+ui.log.write(
+  chalk.yellow('⚠ Note that these default settings are for the standard logo!')
+);
+
 inquirer.prompt<Arguments>(questions).then((answers) => {
-  console.log(answers);
   const vidavidorraLogo = new VidavidorraLogo(
     answers.height,
     answers.lineThickness,
