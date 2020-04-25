@@ -1,19 +1,13 @@
+import * as validator from '../helpers/validator';
 import { Arguments, bufferConverter } from './buffer-converter';
 import inquirer from 'inquirer';
-
-function requireBuffer(value: string): true | string {
-  if (/^\[?([0-9]+,)+[0-9]+\]?$/.test(value)) {
-    return true;
-  }
-  return 'Value must be a buffer';
-}
 
 const questions = [
   {
     type: 'input',
     name: 'bufferString',
     message: 'Enter a buffer',
-    validate: requireBuffer,
+    validate: validator.integerBuffer,
     default: '[53,55,51,20,51,52,89,6,0,1,0,91]',
   },
   {

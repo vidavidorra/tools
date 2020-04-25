@@ -1,26 +1,13 @@
+import * as validator from '../helpers/validator';
 import { Arguments, hexStringConverter } from './hex-string-converter';
 import inquirer from 'inquirer';
-
-function requireHexString(value: string): true | string {
-  if (/^[0-9a-fA-F]+$/.test(value)) {
-    return true;
-  }
-  return 'Value must be hexadecimal';
-}
-
-function requireInteger(value: string): true | string {
-  if (/^[1-9]\d*$/.test(value)) {
-    return true;
-  }
-  return 'Value must be a positive integer (> 0)';
-}
 
 const questions = [
   {
     type: 'input',
     name: 'hexString',
     message: 'Enter a hexadecimal string',
-    validate: requireHexString,
+    validate: validator.hexString,
     default: '0123456789abcdef',
   },
   {
@@ -39,7 +26,7 @@ const questions = [
     name: 'bytesPerLine',
     message: 'How many bytes per line do you want?',
     default: 10,
-    validate: requireInteger,
+    validate: validator.positiveInteger,
   },
   {
     type: 'confirm',
