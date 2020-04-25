@@ -49,7 +49,7 @@ This document describes the construction of the vidavidorra logo, as shown below
 - [Dimensions](#dimensions)
   - [Horizontal line section](#horizontal-line-section)
   - [Vertical line section](#vertical-line-section)
-- [Construction](#layout)
+- [Sections](#sections)
   - [Double V](#double-v)
   - [Single V](#single-v)
 
@@ -119,15 +119,13 @@ This section shows how the height of the vertical section of the line, denoted w
 
 From the [Horizontal line section](#horizontal-line-section), we know `c`. Again, due to the definition of $W$ we know that `d` must be two times `c`. Therefore, we can define it as $2HS$, which we'll call $VS$.
 
----
+# Sections
 
-# Construction
-
-The absolute origin for the logo is at the top left corner. The two sections of the logo each have their own 'origin', which is more like the start of the path of that specific section.
+The absolute origin for the logo is at the top left corner. The two sections of the logo each start with their initial point, which is the starting point of their section.
 
 ## Double V
 
-This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the point numbers in the logo.
+This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below, and the point numbers in the logo.
 
 | point      | horizontal (`x`)       | vertical (`y`) |
 | ---------- | ---------------------- | -------------- |
@@ -147,7 +145,7 @@ This table describes the construction of the double `V`, denoted by the non-dott
 | 14         | $5HS$                  | $0$            |
 
 ```
-1 (origin)                                                               8    7
+1                                                                       8     7
 \\\\\\\\\\ 14                                                       ..  //////
  \\\\\\\\\\                                                        ..  //////
   \\10  11\\                                                      ..  //34//
@@ -190,7 +188,7 @@ This table describes the construction of the double `V`, denoted by the non-dott
 
 ## Single V
 
-This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below and the point numbers in the logo.
+This table describes the construction of the single `V`, denoted by the non-dotted section of the logo below, and the point numbers in the logo.
 
 | point      | horizontal (`x`) | vertical (`y`) |
 | ---------- | ---------------- | -------------- |
@@ -202,7 +200,7 @@ This table describes the construction of the double `V`, denoted by the non-dott
 | 6          | $4HS$            | $2T$           |
 
 ```
-                                                                    4  3
+                                                                    4 3
 ..........                                                          //  ......
  ..........                                                        //  ......
   .. 1  6 ..                                                      //  ..  ..
