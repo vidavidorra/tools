@@ -1,3 +1,4 @@
+import { Points } from './points';
 import { Tool } from '../tool';
 import fs from 'fs';
 import mustache from 'mustache';
@@ -8,12 +9,6 @@ export const tool = new Tool(
   'Create the vidavidorra logo as SVG.'
 );
 
-interface Point {
-  name: string;
-  x: number;
-  y: number;
-}
-
 /**
  * See the logo.md document in this directory for a simplified ASCII
  * representation and description of the logo. That document also contains the
@@ -21,7 +16,7 @@ interface Point {
  * simply follows those paths.
  */
 export class VidavidorraLogo {
-  private svgDataIndentation = 7;
+  private svgPathDataIndentation = 7;
   private svgTemplatePath = path.resolve(__dirname, 'logo.mustache');
 
   private H: number; // Height.
@@ -29,8 +24,8 @@ export class VidavidorraLogo {
   private HS: number; // Horizontal slice width.
   private VS: number; // Vertical slice height.
 
-  private doubleVPoints: Point[];
-  private singleVPoints: Point[];
+  private doubleVPoints: Points;
+  private singleVPoints: Points;
 
   constructor(
     height: number, // H in this class.
@@ -43,7 +38,7 @@ export class VidavidorraLogo {
     this.HS = Math.sqrt(this.T ** 2 + (0.5 * this.T) ** 2);
     this.VS = this.HS * 2;
 
-    this.doubleVPoints = [
+    this.doubleVPoints = new Points([
       { name: 'point 1 (origin)', x: 0, y: 0 },
       { name: 'point 2', x: this.H / 2, y: this.H },
       { name: 'point 3', x: this.H - this.T / 2, y: this.T },
@@ -58,16 +53,16 @@ export class VidavidorraLogo {
       { name: 'point 12', x: this.H / 2, y: this.H - 4 * this.VS },
       { name: 'point 13', x: this.H / 2, y: this.H - 5 * this.VS },
       { name: 'point 14', x: 5 * this.HS, y: 0 },
-    ];
+    ]);
 
-    this.singleVPoints = [
+    this.singleVPoints = new Points([
       { name: 'point 1  (origin)', x: 3 * this.HS, y: 2 * this.T },
       { name: 'point 2', x: this.H / 2, y: this.H - 2 * this.VS },
       { name: 'point 3', x: this.H - 2 * this.HS, y: 0 },
       { name: 'point 4', x: this.H - 3 * this.HS, y: 0 },
       { name: 'point 5', x: this.H / 2, y: this.H - 3 * this.VS },
       { name: 'point 6', x: 4 * this.HS, y: 2 * this.T },
-    ];
+    ]);
   }
 
   createSvg(): void {
@@ -75,8 +70,12 @@ export class VidavidorraLogo {
       width: this.maximumWidth(),
       height: this.maximumHeight(),
       colour: this.colour,
-      doubleVData: this.pointsToSvgPathData(this.doubleVPoints),
-      singleVData: this.pointsToSvgPathData(this.singleVPoints),
+      doubleVData: this.singleVPoints.toSvgPathData(
+        this.svgPathDataIndentation
+      ),
+      singleVData: this.doubleVPoints.toSvgPathData(
+        this.svgPathDataIndentation
+      ),
     };
 
     const template = fs.readFileSync(this.svgTemplatePath, 'utf8');
@@ -86,24 +85,15 @@ export class VidavidorraLogo {
 
   private maximumHeight(): number {
     return Math.max(
-      ...[...this.doubleVPoints, ...this.singleVPoints].map((point) => point.y)
+      this.singleVPoints.maximumHeight(),
+      this.doubleVPoints.maximumHeight()
     );
   }
 
   private maximumWidth(): number {
     return Math.max(
-      ...[...this.doubleVPoints, ...this.singleVPoints].map((point) => point.x)
+      this.singleVPoints.maximumWidth(),
+      this.doubleVPoints.maximumWidth()
     );
-  }
-
-  private pointsToSvgPathData(points: Point[]): string {
-    const svgPath: string[] = [];
-    points.forEach((point, index) => {
-      const command = index === 0 ? 'M' : 'L';
-
-      svgPath.push(`${command} ${point.x} ${point.y}`);
-    });
-
-    return svgPath.join(`\n${' '.repeat(this.svgDataIndentation)}`);
   }
 }
