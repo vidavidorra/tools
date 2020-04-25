@@ -25,7 +25,9 @@
     "hex-string-converter": "node_modules/.bin/ts-node src/hex-string-converter/cli",
     "tools:hsc": "npm run hex-string-converter",
     "map-gnu-symbol": "node_modules/.bin/ts-node src/map-gnu-symbol/cli",
-    "tools:mgs": "npm run map-gnu-symbol"
+    "tools:mgs": "npm run map-gnu-symbol",
+    "vidavidorra-logo": "node_modules/.bin/ts-node src/vidavidorra-logo/cli",
+    "tools:vl": "npm run vidavidorra-logo"
   },
   "repository": {
     "type": "git",
@@ -40,13 +42,15 @@
   "dependencies": {
     "chalk": "4.0.0",
     "clipboardy": "2.3.0",
-    "inquirer": "7.1.0"
+    "inquirer": "7.1.0",
+    "mustache": "4.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "@types/chalk": "2.2.0",
     "@types/inquirer": "6.5.0",
+    "@types/mustache": "4.0.1",
     "@types/node": "13.13.2",
     "@typescript-eslint/eslint-plugin": "2.29.0",
     "@typescript-eslint/parser": "2.29.0",

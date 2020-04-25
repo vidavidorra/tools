@@ -17,8 +17,14 @@ export function positiveInteger(value: string): true | string {
   return 'Value must be a positive integer (e.g. `1`)';
 }
 
+export function isHexColourCode(value: string): boolean {
+  console.log(`validator '${value}'`, /^#[0-9a-fA-F]{6}$/.test(value));
+
+  return /^#[0-9a-fA-F]{6}$/.test(value);
+}
+
 export function hexColourCode(value: string): true | string {
-  if (/^#[0-9a-fA-F]{6}}$/.test(value)) {
+  if (isHexColourCode(value)) {
     return true;
   }
 
