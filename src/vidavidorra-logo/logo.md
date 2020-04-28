@@ -47,6 +47,7 @@ This document describes the construction of the vidavidorra logo, as shown below
 # Table of contents
 
 - [Dimensions](#dimensions)
+  - [Perpendicular distance of thickness](#perpendicular-distance-of-thickness)
   - [Horizontal line section](#horizontal-line-section)
   - [Vertical line section](#vertical-line-section)
 - [Sections](#sections)
@@ -55,15 +56,35 @@ This document describes the construction of the vidavidorra logo, as shown below
 
 # Dimensions
 
-The dimensions as described in the table below are used in the icon. The dimensions for `HS` and `VS` are formulae are described in [Horizontal line section](#horizontal-line-section) and [Vertical line section](#vertical-line-section), respectively.
+The dimensions as described in the table below are used in the icon. The dimensions for `PT`, `HS` and `VS` are formulae are described in [Horizontal line section](#horizontal-line-section) and [Vertical line section](#vertical-line-section), respectively.
 
 | symbol | value                   | description                                                     |
 | ------ | ----------------------- | --------------------------------------------------------------- |
 | `H`    | 100                     | total height of the logo                                        |
 | `T`    | 3                       | thickness of the line (purely vertical)                         |
+| `PT`   | $0.5T$                  | perpendicular distance due to moving `T` in one axis            |
 | `W`    | $H$                     | width of a full-size `V` (this determines the angle of the `V`) |
 | `HS`   | $\sqrt{T^2 + (0.5T)^2}$ | purely horizontal slice of the line                             |
 | `VS`   | $2HS$                   | purely vertical slice of the line                               |
+
+## Perpendicular distance of thickness
+
+This section shows how the perpendicular distance to moving `T` in one axis, is determined.
+
+```
+    |\
+    | \
+    |  \
+    |   \
+  a |    \
+    |     \
+    |      \
+    |       \
+    |________\
+        b
+```
+
+If the thickness of the line is moved vertically, shown as `a` in the graph above, that will result in a horizontal movement for other points in the logo, shown as `b` in the graph above. This can be both horizontal and vertical, depending on the axis of moving the thickness of the line in. However, this movement is always perpendicular to the thickness of the line. Due to the definition of $W$ we know that `a` must be two times `b`. Therefore, we can define this perpendicular distance as $0.5T$, which we'll call $PT$.
 
 ## Horizontal line section
 
@@ -117,7 +138,7 @@ This section shows how the height of the vertical section of the line, denoted w
       c
 ```
 
-From the [Horizontal line section](#horizontal-line-section), we know `c`. Again, due to the definition of $W$ we know that `d` must be two times `c`. Therefore, we can define it as $2HS$, which we'll call $VS$.
+From the [Horizontal line section](#horizontal-line-section), we know `c`. Due to the definition of $W$ we know that `d` must be two times `c`. Therefore, we can define it as $2HS$, which we'll call $VS$.
 
 # Sections
 
