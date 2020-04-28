@@ -18,8 +18,6 @@ export function positiveInteger(value: string): true | string {
 }
 
 export function isHexColourCode(value: string): boolean {
-  console.log(`validator '${value}'`, /^#[0-9a-fA-F]{6}$/.test(value));
-
   return /^#[0-9a-fA-F]{6}$/.test(value);
 }
 
