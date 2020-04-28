@@ -21,6 +21,7 @@ export class VidavidorraLogo {
 
   private H: number; // Height.
   private T: number; // Line thickness.
+  private PT: number; // Perpendicular distance of thickness.
   private HS: number; // Horizontal slice width.
   private VS: number; // Vertical slice height.
 
@@ -35,33 +36,34 @@ export class VidavidorraLogo {
   ) {
     this.H = height;
     this.T = lineThickness;
+    this.PT = this.T / 2;
     this.HS = Math.sqrt(this.T ** 2 + (0.5 * this.T) ** 2);
     this.VS = this.HS * 2;
 
     this.doubleVPoints = new Points([
       { name: 'point 1 (origin)', x: 0, y: 0 },
       { name: 'point 2', x: this.H / 2, y: this.H },
-      { name: 'point 3', x: this.H - this.T / 2, y: this.T },
-      { name: 'point 4', x: this.H - this.T / 2 + this.HS, y: this.T },
+      { name: 'point 3', x: this.H - this.PT, y: this.T },
+      { name: 'point 4', x: this.H - this.PT + this.HS, y: this.T },
       { name: 'point 5', x: this.H / 2 + this.HS, y: this.H },
       { name: 'point 6', x: this.H / 2 + 2 * this.HS, y: this.H },
       { name: 'point 7', x: this.H + 2 * this.HS, y: 0 },
       { name: 'point 8', x: this.H - this.HS, y: 0 },
       { name: 'point 9', x: this.H / 2, y: this.H - this.VS },
-      { name: 'point 10', x: this.T / 2 + this.HS, y: this.T },
-      { name: 'point 11', x: this.T / 2 + 4 * this.HS, y: this.T },
+      { name: 'point 10', x: this.PT + this.HS, y: this.T },
+      { name: 'point 11', x: this.PT + 4 * this.HS, y: this.T },
       { name: 'point 12', x: this.H / 2, y: this.H - 4 * this.VS },
       { name: 'point 13', x: this.H / 2, y: this.H - 5 * this.VS },
       { name: 'point 14', x: 5 * this.HS, y: 0 },
     ]);
 
     this.singleVPoints = new Points([
-      { name: 'point 1  (origin)', x: 3 * this.HS, y: 2 * this.T },
+      { name: 'point 1 (origin)', x: 2 * this.PT + 2 * this.HS, y: 2 * this.T },
       { name: 'point 2', x: this.H / 2, y: this.H - 2 * this.VS },
       { name: 'point 3', x: this.H - 2 * this.HS, y: 0 },
       { name: 'point 4', x: this.H - 3 * this.HS, y: 0 },
       { name: 'point 5', x: this.H / 2, y: this.H - 3 * this.VS },
-      { name: 'point 6', x: 4 * this.HS, y: 2 * this.T },
+      { name: 'point 6', x: 2 * this.PT + 3 * this.HS, y: 2 * this.T },
     ]);
   }
 

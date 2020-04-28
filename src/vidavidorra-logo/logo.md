@@ -62,8 +62,8 @@ The dimensions as described in the table below are used in the icon. The dimensi
 | ------ | ----------------------- | --------------------------------------------------------------- |
 | `H`    | 100                     | total height of the logo                                        |
 | `T`    | 3                       | thickness of the line (purely vertical)                         |
-| `PT`   | $0.5T$                  | perpendicular distance due to moving `T` in one axis            |
 | `W`    | $H$                     | width of a full-size `V` (this determines the angle of the `V`) |
+| `PT`   | $0.5T$                  | perpendicular distance due to moving `T` in one axis            |
 | `HS`   | $\sqrt{T^2 + (0.5T)^2}$ | purely horizontal slice of the line                             |
 | `VS`   | $2HS$                   | purely vertical slice of the line                               |
 
@@ -148,22 +148,22 @@ The absolute origin for the logo is at the top left corner. The two sections of 
 
 This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below, and the point numbers in the logo.
 
-| point      | horizontal (`x`)       | vertical (`y`) |
-| ---------- | ---------------------- | -------------- |
-| 1 (origin) | $0$                    | $0$            |
-| 2          | $\frac{H}{2}$          | $H$            |
-| 3          | $H - \frac{T}{2}$      | $T$            |
-| 4          | $H - \frac{T}{2} + HS$ | $T$            |
-| 5          | $\frac{H}{2} + HS$     | $H$            |
-| 6          | $\frac{H}{2} + 2HS$    | $H$            |
-| 7          | $H + 2HS$              | $0$            |
-| 8          | $H - HS$               | $0$            |
-| 9          | $\frac{H}{2}$          | $H - VS$       |
-| 10         | $\frac{T}{2} + HS$     | $T$            |
-| 11         | $\frac{T}{2} + 4HS$    | $T$            |
-| 12         | $\frac{H}{2}$          | $H - 4VS$      |
-| 13         | $\frac{H}{2}$          | $H - 5VS$      | # x and Y are slightly different! |
-| 14         | $5HS$                  | $0$            |
+| point      | horizontal (`x`)    | vertical (`y`) |
+| ---------- | ------------------- | -------------- |
+| 1 (origin) | $0$                 | $0$            |
+| 2          | $\frac{H}{2}$       | $H$            |
+| 3          | $H - PT$            | $T$            |
+| 4          | $H - PT + HS$       | $T$            |
+| 5          | $\frac{H}{2} + HS$  | $H$            |
+| 6          | $\frac{H}{2} + 2HS$ | $H$            |
+| 7          | $H + 2HS$           | $0$            |
+| 8          | $H - HS$            | $0$            |
+| 9          | $\frac{H}{2}$       | $H - VS$       |
+| 10         | $PT + HS$           | $T$            |
+| 11         | $PT + 4HS$          | $T$            |
+| 12         | $\frac{H}{2}$       | $H - 4VS$      |
+| 13         | $\frac{H}{2}$       | $H - 5VS$      | # x and Y are slightly different! |
+| 14         | $5HS$               | $0$            |
 
 ```
 1                                                                       8     7
@@ -213,12 +213,12 @@ This table describes the construction of the single `V`, denoted by the non-dott
 
 | point      | horizontal (`x`) | vertical (`y`) |
 | ---------- | ---------------- | -------------- |
-| 1 (origin) | $3HS$            | $2T$           |
+| 1 (origin) | $2PT + 2HS$      | $2T$           |
 | 2          | $\frac{H}{2}$    | $H - 2VS$      |
 | 3          | $H - 2HS$        | $0$            |
 | 4          | $H - 3HS$        | $0$            |
 | 5          | $\frac{H}{2}$    | $H - 3VS$      |
-| 6          | $4HS$            | $2T$           |
+| 6          | $2PT + 3HS$      | $2T$           |
 
 ```
                                                                     4 3
