@@ -41,7 +41,7 @@ export class VidavidorraLogo {
     this.VS = this.HS * 2;
 
     this.doubleVPoints = new Points([
-      { name: 'point 1 (origin)', x: 0, y: 0 },
+      { name: 'point 1 (initial)', x: 0, y: 0 },
       { name: 'point 2', x: this.H / 2, y: this.H },
       { name: 'point 3', x: this.H - this.PT, y: this.T },
       { name: 'point 4', x: this.H - this.PT + this.HS, y: this.T },
@@ -58,7 +58,11 @@ export class VidavidorraLogo {
     ]);
 
     this.singleVPoints = new Points([
-      { name: 'point 1 (origin)', x: 2 * this.PT + 2 * this.HS, y: 2 * this.T },
+      {
+        name: 'point 1 (initial)',
+        x: 2 * this.PT + 2 * this.HS,
+        y: 2 * this.T,
+      },
       { name: 'point 2', x: this.H / 2, y: this.H - 2 * this.VS },
       { name: 'point 3', x: this.H - 2 * this.HS, y: 0 },
       { name: 'point 4', x: this.H - 3 * this.HS, y: 0 },
