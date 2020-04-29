@@ -3,6 +3,7 @@ import { Tool } from '../tool';
 import fs from 'fs';
 import mustache from 'mustache';
 import path from 'path';
+import sharp from 'sharp';
 
 export const tool = new Tool(
   'vidavidorra-logo',
@@ -18,6 +19,7 @@ export const tool = new Tool(
 export class VidavidorraLogo {
   private svgPathDataIndentation = 7;
   private svgTemplatePath = path.resolve(__dirname, 'logo.mustache');
+  private svg: string;
 
   private H: number; // Height.
   private T: number; // Line thickness.
@@ -29,7 +31,7 @@ export class VidavidorraLogo {
   private singleVPoints: Points;
 
   constructor(
-    height: number, // H in this class.
+    private height: number, // H in this class.
     lineThickness: number, // T in this class.
     private colour: string,
     private outputDirectory: string
@@ -71,7 +73,13 @@ export class VidavidorraLogo {
     ]);
   }
 
-  createSvg(): void {
+  create(): Promise<void> {
+    this.createSvg();
+
+    return this.createPng();
+  }
+
+  private createSvg(): void {
     const view = {
       width: this.maximumWidth(),
       height: this.maximumHeight(),
@@ -85,8 +93,33 @@ export class VidavidorraLogo {
     };
 
     const template = fs.readFileSync(this.svgTemplatePath, 'utf8');
-    const render = mustache.render(template, view);
-    fs.writeFileSync(path.join(this.outputDirectory, 'logo.svg'), render);
+    this.svg = mustache.render(template, view);
+
+    fs.writeFileSync(path.join(this.outputDirectory, 'logo.svg'), this.svg);
+    console.log();
+  }
+
+  private createPng(): Promise<void> {
+    const svgHeight = Math.ceil(this.maximumHeight());
+    const defaultDensity = 72; // DPI
+    /**
+     * The default density is 72 DPI. In order to resize the image while
+     * maintaining the same DPI, the image is constructed with the DPI scaled up
+     * in order to get at least 72 DPI in the resized image.
+     */
+    return sharp(Buffer.from(this.svg), {
+      density: Math.ceil((defaultDensity * this.height) / svgHeight),
+    })
+      .resize({ height: this.height })
+      .png()
+      .toFile(path.join(this.outputDirectory, 'logo.png'))
+      .then((info) => {
+        console.log(info);
+      })
+      .catch((err) => {
+        console.log(err);
+        //
+      });
   }
 
   private maximumHeight(): number {

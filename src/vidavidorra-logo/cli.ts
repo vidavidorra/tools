@@ -54,5 +54,5 @@ inquirer.prompt<Arguments>(questions).then((answers) => {
     answers.outputDirectory
   );
 
-  vidavidorraLogo.createSvg();
+  return vidavidorraLogo.create();
 });
