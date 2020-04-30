@@ -27,6 +27,8 @@ export class VidavidorraLogo {
   private HS: number; // Horizontal slice width.
   private VS: number; // Vertical slice height.
 
+  private border = 1;
+
   private doubleVPoints: Points;
   private singleVPoints: Points;
 
@@ -64,7 +66,7 @@ export class VidavidorraLogo {
         },
         { name: 'point 14', x: 5 * this.HS, y: 0 },
       ],
-      1
+      this.border
     );
 
     this.singleVPoints = new Points(
@@ -80,7 +82,7 @@ export class VidavidorraLogo {
         { name: 'point 5', x: 0.5 * this.H, y: this.H - 3 * this.VS },
         { name: 'point 6', x: 2 * this.PT + 3 * this.HS, y: 2 * this.T },
       ],
-      1
+      this.border
     );
   }
 
