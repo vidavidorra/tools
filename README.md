@@ -7,6 +7,7 @@ Collection of tools.
 ## Table of contents
 
 - [Badges](#badges)
+- [Usage](#usage)
 - [License](#license)
 
 ## Badges
@@ -18,6 +19,22 @@ Collection of tools.
 | <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Lint%20commit%20messages?style=flat-square"></a> | Lint commit messages | GitHub Actions       |
 | <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Lint?style=flat-square"></a>                     | Lint                 | GitHub Actions       |
 | <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Build?style=flat-square"></a>                    | Build                | GitHub Actions       |
+
+## Usage
+
+Use the `list` script to get an overview of the tools that can be used. An example output of the list is showed below.
+
+```shell
+$ npm run list
+buffer-converter
+  Convert a buffer (e.g. [55,10,22]) to another format (e.g. hexadecimal string).
+hex-string-converter
+  Convert a hexadecimal string (e.g. 0123456789abcdef) to another format (e.g. a C++ vector).
+map-gnu-symbol
+  Map a GNU symbol to in a symbol file.
+vidavidorra-logo
+  Create the vidavidorra logo as SVG.
+```
 
 ## License
 
