@@ -31,8 +31,9 @@ export class VidavidorraLogo {
   private singleVPoints: Points;
 
   constructor(
-    private height: number, // H in this class.
+    height: number, // H in this class.
     lineThickness: number, // T in this class.
+    private pngHeight: number,
     private colour: string,
     private outputDirectory: string
   ) {
@@ -108,9 +109,9 @@ export class VidavidorraLogo {
      * in order to get at least 72 DPI in the resized image.
      */
     return sharp(Buffer.from(this.svg), {
-      density: Math.ceil((defaultDensity * this.height) / svgHeight),
+      density: Math.ceil((defaultDensity * this.pngHeight) / svgHeight),
     })
-      .resize({ height: this.height })
+      .resize({ height: this.pngHeight })
       .png()
       .toFile(path.join(this.outputDirectory, 'logo.png'))
       .then((info) => {

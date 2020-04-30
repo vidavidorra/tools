@@ -7,6 +7,7 @@ interface Arguments {
   outputDirectory: string;
   height: number;
   lineThickness: number;
+  pngHeight: number;
   colour: string;
 }
 
@@ -32,6 +33,13 @@ const questions = [
     default: 3,
   },
   {
+    type: 'number',
+    name: 'pngHeight',
+    message: 'What should be the height of the logo as PNG output?',
+    validate: validator.positiveInteger,
+    default: 2160,
+  },
+  {
     type: 'input',
     name: 'colour',
     message: 'What should be the colour of the logo?',
@@ -50,6 +58,7 @@ inquirer.prompt<Arguments>(questions).then((answers) => {
   const vidavidorraLogo = new VidavidorraLogo(
     answers.height,
     answers.lineThickness,
+    answers.pngHeight,
     answers.colour,
     answers.outputDirectory
   );
