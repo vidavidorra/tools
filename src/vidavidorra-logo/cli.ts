@@ -34,6 +34,13 @@ const questions = [
     default: 3,
   },
   {
+    type: 'input',
+    name: 'colour',
+    message: 'What should be the colour of the logo?',
+    validate: validator.hexColourCode,
+    default: '#f78a1e',
+  },
+  {
     type: 'number',
     name: 'pngHeight',
     message: 'What should be the height of the logo as PNG output?',
@@ -45,13 +52,6 @@ const questions = [
     name: 'pngSquare',
     message: 'Do you want the PNG to be square?',
     default: false,
-  },
-  {
-    type: 'input',
-    name: 'colour',
-    message: 'What should be the colour of the logo?',
-    validate: validator.hexColourCode,
-    default: '#f78a1e',
   },
 ];
 
