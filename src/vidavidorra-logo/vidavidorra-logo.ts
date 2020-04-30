@@ -17,8 +17,11 @@ export const tool = new Tool(
  * simply follows those paths.
  */
 export class VidavidorraLogo {
+  private border = 1;
+  private name = tool.name;
+
   private svgPathDataIndentation = 7;
-  private svgTemplatePath = path.resolve(__dirname, 'logo.mustache');
+  private svgTemplatePath = path.resolve(__dirname, `${this.name}.mustache`);
   private svg: string;
 
   private H: number; // Height.
@@ -26,8 +29,6 @@ export class VidavidorraLogo {
   private PT: number; // Perpendicular distance of thickness.
   private HS: number; // Horizontal slice width.
   private VS: number; // Vertical slice height.
-
-  private border = 1;
 
   private doubleVPoints: Points;
   private singleVPoints: Points;
@@ -109,8 +110,10 @@ export class VidavidorraLogo {
     const template = fs.readFileSync(this.svgTemplatePath, 'utf8');
     this.svg = mustache.render(template, view);
 
-    fs.writeFileSync(path.join(this.outputDirectory, 'logo.svg'), this.svg);
-    console.log();
+    fs.writeFileSync(
+      path.join(this.outputDirectory, `${this.name}.svg`),
+      this.svg,
+    );
   }
 
   private createPng(): Promise<void> {
@@ -137,7 +140,7 @@ export class VidavidorraLogo {
     })
       .resize(resizeOptions)
       .png()
-      .toFile(path.join(this.outputDirectory, 'logo.png'))
+      .toFile(path.join(this.outputDirectory, `${this.name}.png`))
       .then((info) => {
         console.log(info);
       })
