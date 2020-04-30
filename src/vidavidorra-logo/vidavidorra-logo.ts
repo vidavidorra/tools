@@ -1,5 +1,6 @@
 import { Points } from './points';
 import { Tool } from '../tool';
+import chalk from 'chalk';
 import fs from 'fs';
 import mustache from 'mustache';
 import path from 'path';
@@ -140,12 +141,19 @@ export class VidavidorraLogo {
     })
       .resize(resizeOptions)
       .png()
-      .toFile(path.join(this.outputDirectory, `${this.name}.png`))
-      .then((info) => {
-        console.log(info);
+      .toBuffer({ resolveWithObject: true })
+      .then(({ data, info }) => {
+        fs.writeFileSync(
+          path.join(
+            this.outputDirectory,
+            `${this.name}-${info.width}x${info.height}.png`,
+          ),
+          data,
+        );
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error: Error) => {
+        console.error(chalk.red(`${error.name}: ${error.message}`));
+        console.error(error.stack);
       });
   }
 
