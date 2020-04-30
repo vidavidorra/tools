@@ -17,6 +17,7 @@ Collection of tools.
 | <a href="https://conventionalcommits.org"><img alt="Conventional Commits: 1.0.0" src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square"></a>                             | Commit style         | Conventional Commits |
 | <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Lint%20commit%20messages?style=flat-square"></a> | Lint commit messages | GitHub Actions       |
 | <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Lint?style=flat-square"></a>                     | Lint                 | GitHub Actions       |
+| <a href="https://github.com/vidavidorra/tools/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/tools/Build?style=flat-square"></a>                    | Build                | GitHub Actions       |
 
 ## License
 
