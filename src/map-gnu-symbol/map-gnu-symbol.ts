@@ -4,7 +4,7 @@ import fs from 'fs';
 
 export const tool = new Tool(
   'map-gnu-symbol',
-  'Map a GNU symbol to in a symbol file.'
+  'Map a GNU symbol to in a symbol file.',
 );
 
 export interface Arguments {
@@ -22,7 +22,7 @@ class SysvSymbol {
     line: string,
     section: string,
     symbolFile: string,
-    symbolLine: number
+    symbolLine: number,
   ) {
     if (!name || !value) {
       throw new Error('Required field(s) missing');
@@ -116,7 +116,7 @@ export class SysvSymbols {
       const elementsInLine = this.elementsInLine(line);
       if (elementsInLine !== 7) {
         throw new Error(
-          'Invalid amount of elements in line (${elementsInLine})'
+          'Invalid amount of elements in line (${elementsInLine})',
         );
       }
 
@@ -156,7 +156,7 @@ export class SysvSymbols {
         symbolLine,
         sysvSection,
         symbolFile,
-        symbolLineNumber
+        symbolLineNumber,
       );
 
       return s;

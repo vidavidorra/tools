@@ -58,7 +58,7 @@ const questions = [
 const ui = new inquirer.ui.BottomBar();
 
 ui.log.write(
-  chalk.yellow('⚠ Note that these default settings are for the standard logo!')
+  chalk.yellow('⚠ Note that these default settings are for the standard logo!'),
 );
 
 inquirer.prompt<Arguments>(questions).then((answers) => {
@@ -68,7 +68,7 @@ inquirer.prompt<Arguments>(questions).then((answers) => {
     answers.lineThickness,
     answers.colour,
     answers.pngHeight,
-    answers.pngSquare
+    answers.pngSquare,
   );
 
   return vidavidorraLogo.create();

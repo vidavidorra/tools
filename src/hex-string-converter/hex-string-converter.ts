@@ -7,7 +7,7 @@ export const tool = new Tool(
   [
     'Convert a hexadecimal string (e.g. 0123456789abcdef) to another format',
     '(e.g. a C++ vector).',
-  ].join(' ')
+  ].join(' '),
 );
 
 export interface Arguments {

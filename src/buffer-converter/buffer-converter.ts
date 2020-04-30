@@ -7,7 +7,7 @@ export const tool = new Tool(
   [
     'Convert a buffer (e.g. [55,10,22]) to another format (e.g. hexadecimal',
     'string).',
-  ].join(' ')
+  ].join(' '),
 );
 
 export interface Arguments {

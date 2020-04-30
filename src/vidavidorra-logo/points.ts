@@ -13,7 +13,7 @@ export class Points {
     this.points.forEach((point, index) => {
       const command = index === 0 ? 'M' : 'L';
       svgPath.push(
-        `${command} ${point.x + this.border} ${point.y + this.border}`
+        `${command} ${point.x + this.border} ${point.y + this.border}`,
       );
     });
 

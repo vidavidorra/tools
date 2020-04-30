@@ -7,7 +7,7 @@ import sharp from 'sharp';
 
 export const tool = new Tool(
   'vidavidorra-logo',
-  'Create the vidavidorra logo as SVG.'
+  'Create the vidavidorra logo as SVG.',
 );
 
 /**
@@ -38,7 +38,7 @@ export class VidavidorraLogo {
     lineThickness: number, // T in this class.
     private colour: string,
     private pngHeight: number,
-    private pngSquare: boolean
+    private pngSquare: boolean,
   ) {
     this.H = height;
     this.T = lineThickness;
@@ -67,7 +67,7 @@ export class VidavidorraLogo {
         },
         { name: 'point 14', x: 5 * this.HS, y: 0 },
       ],
-      this.border
+      this.border,
     );
 
     this.singleVPoints = new Points(
@@ -83,7 +83,7 @@ export class VidavidorraLogo {
         { name: 'point 5', x: 0.5 * this.H, y: this.H - 3 * this.VS },
         { name: 'point 6', x: 2 * this.PT + 3 * this.HS, y: 2 * this.T },
       ],
-      this.border
+      this.border,
     );
   }
 
@@ -99,10 +99,10 @@ export class VidavidorraLogo {
       height: this.maximumHeight(),
       colour: this.colour,
       doubleVData: this.singleVPoints.toSvgPathData(
-        this.svgPathDataIndentation
+        this.svgPathDataIndentation,
       ),
       singleVData: this.doubleVPoints.toSvgPathData(
-        this.svgPathDataIndentation
+        this.svgPathDataIndentation,
       ),
     };
 
@@ -143,21 +143,20 @@ export class VidavidorraLogo {
       })
       .catch((err) => {
         console.log(err);
-        //
       });
   }
 
   private maximumHeight(): number {
     return Math.max(
       this.singleVPoints.maximumHeight(),
-      this.doubleVPoints.maximumHeight()
+      this.doubleVPoints.maximumHeight(),
     );
   }
 
   private maximumWidth(): number {
     return Math.max(
       this.singleVPoints.maximumWidth(),
-      this.doubleVPoints.maximumWidth()
+      this.doubleVPoints.maximumWidth(),
     );
   }
 }
