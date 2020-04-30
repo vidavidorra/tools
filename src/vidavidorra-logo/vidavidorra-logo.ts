@@ -136,25 +136,30 @@ export class VidavidorraLogo {
      */
     const defaultDensity = 72; // DPI
 
-    return sharp(Buffer.from(this.svg), {
-      density: Math.ceil((defaultDensity * this.pngHeight) / svgHeight),
-    })
-      .resize(resizeOptions)
-      .png()
-      .toBuffer({ resolveWithObject: true })
-      .then(({ data, info }) => {
-        fs.writeFileSync(
-          path.join(
-            this.outputDirectory,
-            `${this.name}-${info.width}x${info.height}.png`,
-          ),
-          data,
-        );
-      })
-      .catch((error: Error) => {
-        console.error(chalk.red(`${error.name}: ${error.message}`));
-        console.error(error.stack);
-      });
+    return new Promise((resolve) => {
+      try {
+        sharp(Buffer.from(this.svg), {
+          density: Math.ceil((defaultDensity * this.pngHeight) / svgHeight),
+        })
+          .resize(resizeOptions)
+          .png()
+          .toBuffer({ resolveWithObject: true })
+          .then(({ data, info }) => {
+            fs.writeFileSync(
+              path.join(
+                this.outputDirectory,
+                `${this.name}-${info.width}x${info.height}.png`,
+              ),
+              data,
+            );
+
+            resolve();
+          });
+      } catch (error) {
+        console.error(error);
+        process.exit(1);
+      }
+    });
   }
 
   private maximumHeight(): number {
