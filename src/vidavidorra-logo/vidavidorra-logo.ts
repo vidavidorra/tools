@@ -33,11 +33,12 @@ export class VidavidorraLogo {
   private singleVPoints: Points;
 
   constructor(
+    private outputDirectory: string,
     height: number, // H in this class.
     lineThickness: number, // T in this class.
-    private pngHeight: number,
     private colour: string,
-    private outputDirectory: string
+    private pngHeight: number,
+    private pngSquare: boolean
   ) {
     this.H = height;
     this.T = lineThickness;
@@ -114,16 +115,27 @@ export class VidavidorraLogo {
 
   private createPng(): Promise<void> {
     const svgHeight = Math.ceil(this.maximumHeight());
-    const defaultDensity = 72; // DPI
+
+    const resizeOptions: sharp.ResizeOptions = {
+      height: this.pngHeight,
+    };
+    if (this.pngSquare) {
+      resizeOptions.width = this.pngHeight;
+      resizeOptions.fit = 'contain';
+      resizeOptions.background = { r: 0, g: 0, b: 0, alpha: 0 };
+    }
+
     /**
      * The default density is 72 DPI. In order to resize the image while
      * maintaining the same DPI, the image is constructed with the DPI scaled up
      * in order to get at least 72 DPI in the resized image.
      */
+    const defaultDensity = 72; // DPI
+
     return sharp(Buffer.from(this.svg), {
       density: Math.ceil((defaultDensity * this.pngHeight) / svgHeight),
     })
-      .resize({ height: this.pngHeight })
+      .resize(resizeOptions)
       .png()
       .toFile(path.join(this.outputDirectory, 'logo.png'))
       .then((info) => {

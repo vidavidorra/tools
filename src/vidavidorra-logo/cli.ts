@@ -7,8 +7,9 @@ interface Arguments {
   outputDirectory: string;
   height: number;
   lineThickness: number;
-  pngHeight: number;
   colour: string;
+  pngHeight: number;
+  pngSquare: boolean;
 }
 
 const questions = [
@@ -40,6 +41,12 @@ const questions = [
     default: 2160,
   },
   {
+    type: 'boolean',
+    name: 'pngSquare',
+    message: 'Do you want the PNG to be square?',
+    default: false,
+  },
+  {
     type: 'input',
     name: 'colour',
     message: 'What should be the colour of the logo?',
@@ -56,11 +63,12 @@ ui.log.write(
 
 inquirer.prompt<Arguments>(questions).then((answers) => {
   const vidavidorraLogo = new VidavidorraLogo(
+    answers.outputDirectory,
     answers.height,
     answers.lineThickness,
-    answers.pngHeight,
     answers.colour,
-    answers.outputDirectory
+    answers.pngHeight,
+    answers.pngSquare
   );
 
   return vidavidorraLogo.create();
