@@ -31,7 +31,7 @@ This document describes the construction of the vidavidorra logo, as shown below
                          \\  \\  \\        //  //  //
                           \\  \\  \\      //  //  //
                            \\  \\  \\    //  //  //
-                            \\  \\  |   //  //  //
+                            \\  \\  \/  //  //  //
                              \\  \\    //  //  //
                               \\  \\  //  //  //
                                \\  \\//  //  //
@@ -84,7 +84,7 @@ This section shows how the perpendicular distance to moving `T` in one axis, is 
         b
 ```
 
-If the thickness of the line is moved vertically, shown as `a` in the graph above, that will result in a horizontal movement for other points in the logo, shown as `b` in the graph above. This can be both horizontal and vertical, depending on the axis of moving the thickness of the line in. However, this movement is always perpendicular to the thickness of the line. Due to the definition of $W$ we know that `a` must be two times `b`. Therefore, we can define this perpendicular distance as $0.5T$, which we'll call $PT$.
+If the thickness of the line is moved vertically, shown as `a` in the graph above, that will result in a horizontal movement for other points in the logo, shown as `b` in the graph above. This can be both horizontal and vertical, depending on the axis of moving the thickness of the line in. However, this movement is always perpendicular to the thickness of the line. Due to the definition of $W$, we know that `a` must be two times `b`. Therefore, we can define this perpendicular distance as $0.5T$, which we'll call $PT$.
 
 ## Horizontal line section
 
@@ -138,7 +138,7 @@ This section shows how the height of the vertical section of the line, denoted w
       c
 ```
 
-From the [Horizontal line section](#horizontal-line-section), we know `c`. Due to the definition of $W$ we know that `d` must be two times `c`. Therefore, we can define it as $2HS$, which we'll call $VS$.
+From the [Horizontal line section](#horizontal-line-section), we know `c`. Due to the definition of $W$, we know that `d` must be two times `c`. Therefore, we can define it as $2HS$, which we'll call $VS$.
 
 # Sections
 
@@ -148,22 +148,22 @@ The absolute origin for the logo is at the top left corner and is positive in th
 
 This table describes the construction of the double `V`, denoted by the non-dotted section of the logo below, and the point numbers in the logo.
 
-| point       | horizontal (`x`)    | vertical (`y`) |
-| ----------- | ------------------- | -------------- |
-| 1 (initial) | $0$                 | $0$            |
-| 2           | $\frac{H}{2}$       | $H$            |
-| 3           | $H - PT$            | $T$            |
-| 4           | $H - PT + HS$       | $T$            |
-| 5           | $\frac{H}{2} + HS$  | $H$            |
-| 6           | $\frac{H}{2} + 2HS$ | $H$            |
-| 7           | $H + 2HS$           | $0$            |
-| 8           | $H - HS$            | $0$            |
-| 9           | $\frac{H}{2}$       | $H - VS$       |
-| 10          | $PT + HS$           | $T$            |
-| 11          | $PT + 4HS$          | $T$            |
-| 12          | $\frac{H}{2}$       | $H - 4VS$      |
-| 13          | $\frac{H}{2}$       | $H - 5VS$      | # x and Y are slightly different! |
-| 14          | $5HS$               | $0$            |
+| point       | horizontal (`x`) | vertical (`y`) |
+| ----------- | ---------------- | -------------- |
+| 1 (initial) | $0$              | $0$            |
+| 2           | $0.5H$           | $H$            |
+| 3           | $H - PT$         | $T$            |
+| 4           | $H - PT + HS$    | $T$            |
+| 5           | $0.5H + HS$      | $H$            |
+| 6           | $0.5H + 2HS$     | $H$            |
+| 7           | $H + 2HS$        | $0$            |
+| 8           | $H - HS$         | $0$            |
+| 9           | $0.5H$           | $H - VS$       |
+| 10          | $PT + HS$        | $T$            |
+| 11          | $PT + 4HS$       | $T$            |
+| 12          | $0.5H$           | $H - 4VS$      |
+| 13          | $0.5H + 0.25VS$  | $H - 4.5VS$    |
+| 14          | $5HS$            | $0$            |
 
 ```
 1                                                                       8     7
@@ -195,7 +195,7 @@ This table describes the construction of the double `V`, denoted by the non-dott
                          \\  ..  \\        ..  //  //
                           \\  ..  \\      ..  //  //
                            \\  ..  \\ 13 ..  //  //
-                            \\  ..  |   ..  //  //
+                            \\  ..  \/  ..  //  //
                              \\  .. 12 ..  //  //
                               \\  ..  ..  //  //
                                \\  ....  //  //
@@ -207,6 +207,27 @@ This table describes the construction of the double `V`, denoted by the non-dott
                                     2  5 6
 ```
 
+The middle corner, between 12 and 13, is different than the rest of the angles as it follows the angle of the right-side of the single V. That section of the logo is enlarged below and here we'll discuss how point 13, which is the one that makes this different angle, is determined.
+
+We know that `e` is the vertical section of the line, which we called $VS$ and was determined in [Vertical line section](#vertical-line-section). Due to the definition of $W$, we can determine both the point where `e` and `f` intersect and the width of `f`. The point where `e` and `f` intersect is half of $VS$, so $0.5VS$. The width of `f` is half that, so $0.25VS$.
+
+```
+\          \
+ \          \
+  \          \
+   \         |\
+    \        | \
+     \       |  \
+      \      |   \
+       \   e |____\ 13
+        \    |  f /
+         \   |   /
+          \  |  /
+           \ | /
+            \ /
+            12
+```
+
 ## Single V
 
 This table describes the construction of the single `V`, denoted by the non-dotted section of the logo below, and the point numbers in the logo.
@@ -214,10 +235,10 @@ This table describes the construction of the single `V`, denoted by the non-dott
 | point       | horizontal (`x`) | vertical (`y`) |
 | ----------- | ---------------- | -------------- |
 | 1 (initial) | $2PT + 2HS$      | $2T$           |
-| 2           | $\frac{H}{2}$    | $H - 2VS$      |
+| 2           | $0.5H$           | $H - 2VS$      |
 | 3           | $H - 2HS$        | $0$            |
 | 4           | $H - 3HS$        | $0$            |
-| 5           | $\frac{H}{2}$    | $H - 3VS$      |
+| 5           | $0.5H$           | $H - 3VS$      |
 | 6           | $2PT + 3HS$      | $2T$           |
 
 ```
@@ -250,7 +271,7 @@ This table describes the construction of the single `V`, denoted by the non-dott
                          ..  \\  ..        //  ..  ..
                           ..  \\  ..      //  ..  ..
                            ..  \\  ..    //  ..  ..
-                            ..  \\  .   //  ..  ..
+                            ..  \\  ..  //  ..  ..
                              ..  \\ 5  //  ..  ..
                               ..  \\  //  ..  ..
                                ..  \\//  ..  ..

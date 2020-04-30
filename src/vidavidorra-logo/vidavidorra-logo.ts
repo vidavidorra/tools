@@ -43,35 +43,45 @@ export class VidavidorraLogo {
     this.HS = Math.sqrt(this.T ** 2 + (0.5 * this.T) ** 2);
     this.VS = this.HS * 2;
 
-    this.doubleVPoints = new Points([
-      { name: 'point 1 (initial)', x: 0, y: 0 },
-      { name: 'point 2', x: this.H / 2, y: this.H },
-      { name: 'point 3', x: this.H - this.PT, y: this.T },
-      { name: 'point 4', x: this.H - this.PT + this.HS, y: this.T },
-      { name: 'point 5', x: this.H / 2 + this.HS, y: this.H },
-      { name: 'point 6', x: this.H / 2 + 2 * this.HS, y: this.H },
-      { name: 'point 7', x: this.H + 2 * this.HS, y: 0 },
-      { name: 'point 8', x: this.H - this.HS, y: 0 },
-      { name: 'point 9', x: this.H / 2, y: this.H - this.VS },
-      { name: 'point 10', x: this.PT + this.HS, y: this.T },
-      { name: 'point 11', x: this.PT + 4 * this.HS, y: this.T },
-      { name: 'point 12', x: this.H / 2, y: this.H - 4 * this.VS },
-      { name: 'point 13', x: this.H / 2, y: this.H - 5 * this.VS },
-      { name: 'point 14', x: 5 * this.HS, y: 0 },
-    ]);
+    this.doubleVPoints = new Points(
+      [
+        { name: 'point 1 (initial)', x: 0, y: 0 },
+        { name: 'point 2', x: 0.5 * this.H, y: this.H },
+        { name: 'point 3', x: this.H - this.PT, y: this.T },
+        { name: 'point 4', x: this.H - this.PT + this.HS, y: this.T },
+        { name: 'point 5', x: 0.5 * this.H + this.HS, y: this.H },
+        { name: 'point 6', x: 0.5 * this.H + 2 * this.HS, y: this.H },
+        { name: 'point 7', x: this.H + 2 * this.HS, y: 0 },
+        { name: 'point 8', x: this.H - this.HS, y: 0 },
+        { name: 'point 9', x: 0.5 * this.H, y: this.H - this.VS },
+        { name: 'point 10', x: this.PT + this.HS, y: this.T },
+        { name: 'point 11', x: this.PT + 4 * this.HS, y: this.T },
+        { name: 'point 12', x: 0.5 * this.H, y: this.H - 4 * this.VS },
+        {
+          name: 'point 13',
+          x: 0.5 * this.H + 0.25 * this.VS,
+          y: this.H - 4.5 * this.VS,
+        },
+        { name: 'point 14', x: 5 * this.HS, y: 0 },
+      ],
+      1
+    );
 
-    this.singleVPoints = new Points([
-      {
-        name: 'point 1 (initial)',
-        x: 2 * this.PT + 2 * this.HS,
-        y: 2 * this.T,
-      },
-      { name: 'point 2', x: this.H / 2, y: this.H - 2 * this.VS },
-      { name: 'point 3', x: this.H - 2 * this.HS, y: 0 },
-      { name: 'point 4', x: this.H - 3 * this.HS, y: 0 },
-      { name: 'point 5', x: this.H / 2, y: this.H - 3 * this.VS },
-      { name: 'point 6', x: 2 * this.PT + 3 * this.HS, y: 2 * this.T },
-    ]);
+    this.singleVPoints = new Points(
+      [
+        {
+          name: 'point 1 (initial)',
+          x: 2 * this.PT + 2 * this.HS,
+          y: 2 * this.T,
+        },
+        { name: 'point 2', x: 0.5 * this.H, y: this.H - 2 * this.VS },
+        { name: 'point 3', x: this.H - 2 * this.HS, y: 0 },
+        { name: 'point 4', x: this.H - 3 * this.HS, y: 0 },
+        { name: 'point 5', x: 0.5 * this.H, y: this.H - 3 * this.VS },
+        { name: 'point 6', x: 2 * this.PT + 3 * this.HS, y: 2 * this.T },
+      ],
+      1
+    );
   }
 
   create(): Promise<void> {
