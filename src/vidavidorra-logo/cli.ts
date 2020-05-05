@@ -17,7 +17,7 @@ const questions = [
     type: 'input',
     name: 'outputDirectory',
     message: 'What directory do you want to save the logo in?',
-    default: './output',
+    default: './build',
   },
   {
     type: 'number',
