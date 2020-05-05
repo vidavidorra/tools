@@ -19,5 +19,6 @@
       "depTypeList": ["devDependencies"],
       "schedule": ["at any time"]
     }
-  ]
+  ],
+  "prCreation": "not-pending"
 }
