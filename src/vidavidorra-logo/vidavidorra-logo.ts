@@ -1,6 +1,5 @@
 import { Points } from './points';
 import { Tool } from '../tool';
-import chalk from 'chalk';
 import fs from 'fs';
 import mustache from 'mustache';
 import path from 'path';
