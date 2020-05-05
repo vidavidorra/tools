@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/vidavidorra/tools/compare/v0.1.1...v0.1.2) (2020-05-05)
+
+### Bug Fixes
+
+- rename output directory to build ([35799df](https://github.com/vidavidorra/tools/commit/35799dfb106d69c60855d0d6d67eb2f536c6f699))
+- warning 'chalk' is defined but never used ([2daf9c4](https://github.com/vidavidorra/tools/commit/2daf9c4f6179dbaaaac684da3ab2303c984e4c3d))
+
 ### 0.1.1 (2020-04-30)
 
 ### Features
