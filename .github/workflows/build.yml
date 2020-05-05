@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install project
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Build
         run: npm run build
