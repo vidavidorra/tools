@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/vidavidorra/tools/compare/v0.1.2...v1.0.0) (2020-05-06)
+
+### Features
+
+- add tool/script for git branch protection ([245394d](https://github.com/vidavidorra/tools/commit/245394d097e3c0538e55710a8cc53ca5587fa2ed))
+
 ### [0.1.2](https://github.com/vidavidorra/tools/compare/v0.1.1...v0.1.2) (2020-05-05)
 
 ### Bug Fixes
