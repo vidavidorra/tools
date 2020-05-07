@@ -6,6 +6,9 @@ on:
       - 'renovate/**'
       - 'github-renovate/**'
   pull_request:
+    paths-ignore:
+      - 'renovate/**'
+      - 'github-renovate/**'
 jobs:
   build:
     runs-on: ubuntu-latest
