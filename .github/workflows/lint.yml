@@ -6,9 +6,6 @@ on:
       - 'renovate/**'
       - 'github-renovate/**'
   pull_request:
-    branches-ignore:
-      - 'renovate/**'
-      - 'github-renovate/**'
 jobs:
   lint:
     runs-on: ubuntu-latest
