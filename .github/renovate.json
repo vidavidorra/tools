@@ -18,6 +18,5 @@
       "depTypeList": ["devDependencies"],
       "extends": ["schedule:monthly"]
     }
-  ],
-  "prCreation": "not-pending"
+  ]
 }

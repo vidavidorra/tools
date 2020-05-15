@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-      - 'renovate/**'
-      - 'github-renovate/**'
   pull_request:
 jobs:
   build:
