@@ -6,6 +6,7 @@
     ":timezone(Europe/Amsterdam)"
   ],
   "ignorePresets": [":prHourlyLimit2"],
+  "prCreation": "not-pending",
   "lockFileMaintenance": {
     "enabled": true,
     "masterIssueApproval": true
@@ -18,6 +19,5 @@
       "depTypeList": ["devDependencies"],
       "schedule": "at any time"
     }
-  ],
-  "prCreation": "not-pending"
+  ]
 }
