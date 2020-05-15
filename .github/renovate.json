@@ -16,7 +16,8 @@
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],
-      "extends": ["schedule:monthly"]
+      "schedule": "at any time"
     }
-  ]
+  ],
+  "prCreation": "not-pending"
 }
