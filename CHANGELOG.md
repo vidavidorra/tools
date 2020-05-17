@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/vidavidorra/tools/compare/v1.0.0...v1.1.0) (2020-05-17)
+
+### Features
+
+- add tool to analyse random data ([25cd19f](https://github.com/vidavidorra/tools/commit/25cd19f4f6bc07cea7171bea4cb7c2f8f2cd36fe))
+
 ## [1.0.0](https://github.com/vidavidorra/tools/compare/v0.1.2...v1.0.0) (2020-05-06)
 
 ### Features
