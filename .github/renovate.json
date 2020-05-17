@@ -17,7 +17,7 @@
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],
-      "schedule": "at any time"
+      "extends": ["schedule:daily"]
     }
   ]
 }
