@@ -27,6 +27,8 @@
     "tools:hsc": "npm run hex-string-converter",
     "map-gnu-symbol": "node_modules/.bin/ts-node src/map-gnu-symbol/cli",
     "tools:mgs": "npm run map-gnu-symbol",
+    "random-data-analyser": "node_modules/.bin/ts-node src/random-data-analyser/cli",
+    "tools:rda": "npm run random-data-analyser",
     "vidavidorra-logo": "node_modules/.bin/ts-node src/vidavidorra-logo/cli",
     "tools:vl": "npm run vidavidorra-logo"
   },
