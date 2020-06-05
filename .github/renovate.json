@@ -6,7 +6,6 @@
     ":timezone(Europe/Amsterdam)"
   ],
   "ignorePresets": [":prHourlyLimit2"],
-  "prCreation": "not-pending",
   "lockFileMaintenance": {
     "enabled": true,
     "masterIssueApproval": true
@@ -16,8 +15,10 @@
   },
   "packageRules": [
     {
-      "depTypeList": ["devDependencies"],
-      "extends": ["schedule:daily"]
+      "depTypeList": ["dependencies"],
+      "schedule": ["at any time"]
     }
-  ]
+  ],
+ "prCreation": "not-pending",
+  "schedule": ["on the first day of the week"]
 }
