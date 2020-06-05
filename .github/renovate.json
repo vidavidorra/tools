@@ -19,6 +19,6 @@
       "schedule": ["at any time"]
     }
   ],
- "prCreation": "not-pending",
+  "prCreation": "not-pending",
   "schedule": ["on the first day of the week"]
 }
