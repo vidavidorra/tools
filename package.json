@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/vidavidorra/tools#readme",
   "dependencies": {
-    "chalk": "4.0.0",
+    "chalk": "4.1.0",
     "clipboardy": "2.3.0",
     "inquirer": "7.1.0",
     "mustache": "4.0.1"
