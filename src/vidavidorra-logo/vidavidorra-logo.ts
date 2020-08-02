@@ -16,7 +16,7 @@ interface Options {
   lineThickness: number;
   colour: string;
   pngHeight: number;
-  pngFormat: 'rectangle' | 'square';
+  pngFormat: 'rectangle' | 'square' | 'square-inscribed-circle';
 }
 
 /**
@@ -119,16 +119,53 @@ export class VidavidorraLogo {
   }
 
   private createPng(): Promise<void> {
+    const background: sharp.Color = { r: 0, g: 0, b: 0, alpha: 0 };
     const svgHeight = Math.ceil(this.maximumHeight());
-
     const resizeOptions: sharp.ResizeOptions = {
       height: this.options.pngHeight,
+      background,
+    };
+    const extendOptions: sharp.ExtendOptions = {
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      background,
     };
 
-    if (this.options.pngFormat === 'square') {
+    if (
+      this.options.pngFormat === 'square' ||
+      this.options.pngFormat === 'square-inscribed-circle'
+    ) {
       resizeOptions.width = this.options.pngHeight;
       resizeOptions.fit = 'contain';
-      resizeOptions.background = { r: 0, g: 0, b: 0, alpha: 0 };
+    }
+
+    if (this.options.pngFormat === 'square-inscribed-circle') {
+      /**
+       * Imagine the given size, which is a square, has an inscribed circle. The
+       * diameter of the circle is be the same as the diagonal of the square.
+       * Imagine that circle would have an inscribed square, lets call this the
+       * inner square, which is of course smaller than the outter square.
+       * Using the Pythagorean theorem, we know that the each side's length of
+       * the inner square is $r \sqrt{2}$. Putting that together for the inner
+       * square means that each side's length is $r \sqrt{2}$ where $r$ is half
+       * of the outer square's side length.
+       *
+       */
+      const inscribedCircleRadius = this.options.pngHeight / 2;
+      const innerSquareSideLength = Math.floor(
+        inscribedCircleRadius * Math.sqrt(2),
+      );
+      resizeOptions.width = innerSquareSideLength;
+      resizeOptions.height = innerSquareSideLength;
+
+      const sideLengthDifference =
+        this.options.pngHeight - innerSquareSideLength;
+      extendOptions.top = Math.ceil(sideLengthDifference / 2);
+      extendOptions.bottom = Math.floor(sideLengthDifference / 2);
+      extendOptions.left = Math.floor(sideLengthDifference / 2);
+      extendOptions.right = Math.ceil(sideLengthDifference / 2);
     }
 
     /**
@@ -146,16 +183,18 @@ export class VidavidorraLogo {
           ),
         })
           .resize(resizeOptions)
+          .extend(extendOptions)
           .png()
           .toBuffer({ resolveWithObject: true })
           .then(({ data, info }) => {
-            console.log(
-              `Output: ${this.name}-${info.width}x${info.height}.png`,
-            );
+            let suffix = '';
+            if (this.options.pngFormat === 'square-inscribed-circle') {
+              suffix = '-inscribed-circle';
+            }
             fs.writeFileSync(
               path.join(
                 this.options.outputDirectory,
-                `${this.name}-${info.width}x${info.height}.png`,
+                `${this.name}-${info.width}x${info.height}${suffix}.png`,
               ),
               data,
             );

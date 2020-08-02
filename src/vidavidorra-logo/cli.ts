@@ -45,6 +45,11 @@ const questions = [
     choices: [
       { name: 'Rectangle', value: 'rectangle' },
       { name: 'Square', value: 'square' },
+      {
+        name: 'Square with inscribed circle fitting the logo',
+        short: 'Square inscribed circle',
+        value: 'square-inscribed-circle',
+      },
     ],
     default: 'rectangle',
   },
