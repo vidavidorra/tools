@@ -1,16 +1,7 @@
 import * as validator from '../helpers/validator';
-import { VidavidorraLogo } from './vidavidorra-logo';
+import VidavidorraLogo, { Options } from './vidavidorra-logo';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-
-interface Arguments {
-  outputDirectory: string;
-  height: number;
-  lineThickness: number;
-  colour: string;
-  pngHeight: number;
-  pngSquare: boolean;
-}
 
 const questions = [
   {
@@ -48,10 +39,14 @@ const questions = [
     default: 2160,
   },
   {
-    type: 'boolean',
-    name: 'pngSquare',
-    message: 'Do you want the PNG to be square?',
-    default: false,
+    type: 'list',
+    name: 'pngFormat',
+    message: 'What should the format of the PNG output be?',
+    choices: [
+      { name: 'Rectangle', value: 'rectangle' },
+      { name: 'Square', value: 'square' },
+    ],
+    default: 'rectangle',
   },
 ];
 
@@ -61,15 +56,8 @@ ui.log.write(
   chalk.yellow('⚠ Note that these default settings are for the standard logo!'),
 );
 
-inquirer.prompt<Arguments>(questions).then((answers) => {
-  const vidavidorraLogo = new VidavidorraLogo(
-    answers.outputDirectory,
-    answers.height,
-    answers.lineThickness,
-    answers.colour,
-    answers.pngHeight,
-    answers.pngSquare,
-  );
+inquirer.prompt<Options>(questions).then((answers) => {
+  const vidavidorraLogo = new VidavidorraLogo(answers);
 
   return vidavidorraLogo.create();
 });

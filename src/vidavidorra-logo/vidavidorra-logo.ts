@@ -5,10 +5,19 @@ import mustache from 'mustache';
 import path from 'path';
 import sharp from 'sharp';
 
-export const tool = new Tool(
+const tool = new Tool(
   'vidavidorra-logo',
   'Create the vidavidorra logo as SVG.',
 );
+
+interface Options {
+  outputDirectory: string;
+  height: number;
+  lineThickness: number;
+  colour: string;
+  pngHeight: number;
+  pngFormat: 'rectangle' | 'square';
+}
 
 /**
  * See the logo.md document in this directory for a simplified ASCII
@@ -33,16 +42,9 @@ export class VidavidorraLogo {
   private doubleVPoints: Points;
   private singleVPoints: Points;
 
-  constructor(
-    private outputDirectory: string,
-    height: number, // H in this class.
-    lineThickness: number, // T in this class.
-    private colour: string,
-    private pngHeight: number,
-    private pngSquare: boolean,
-  ) {
-    this.H = height;
-    this.T = lineThickness;
+  constructor(private options: Options) {
+    this.H = this.options.height;
+    this.T = this.options.lineThickness;
     this.PT = this.T / 2;
     this.HS = Math.sqrt(this.T ** 2 + (0.5 * this.T) ** 2);
     this.VS = this.HS * 2;
@@ -98,7 +100,7 @@ export class VidavidorraLogo {
     const view = {
       width: this.maximumWidth(),
       height: this.maximumHeight(),
-      colour: this.colour,
+      colour: this.options.colour,
       doubleVData: this.singleVPoints.toSvgPathData(
         this.svgPathDataIndentation,
       ),
@@ -111,7 +113,7 @@ export class VidavidorraLogo {
     this.svg = mustache.render(template, view);
 
     fs.writeFileSync(
-      path.join(this.outputDirectory, `${this.name}.svg`),
+      path.join(this.options.outputDirectory, `${this.name}.svg`),
       this.svg,
     );
   }
@@ -120,10 +122,11 @@ export class VidavidorraLogo {
     const svgHeight = Math.ceil(this.maximumHeight());
 
     const resizeOptions: sharp.ResizeOptions = {
-      height: this.pngHeight,
+      height: this.options.pngHeight,
     };
-    if (this.pngSquare) {
-      resizeOptions.width = this.pngHeight;
+
+    if (this.options.pngFormat === 'square') {
+      resizeOptions.width = this.options.pngHeight;
       resizeOptions.fit = 'contain';
       resizeOptions.background = { r: 0, g: 0, b: 0, alpha: 0 };
     }
@@ -138,15 +141,20 @@ export class VidavidorraLogo {
     return new Promise((resolve) => {
       try {
         sharp(Buffer.from(this.svg), {
-          density: Math.ceil((defaultDensity * this.pngHeight) / svgHeight),
+          density: Math.ceil(
+            (defaultDensity * this.options.pngHeight) / svgHeight,
+          ),
         })
           .resize(resizeOptions)
           .png()
           .toBuffer({ resolveWithObject: true })
           .then(({ data, info }) => {
+            console.log(
+              `Output: ${this.name}-${info.width}x${info.height}.png`,
+            );
             fs.writeFileSync(
               path.join(
-                this.outputDirectory,
+                this.options.outputDirectory,
                 `${this.name}-${info.width}x${info.height}.png`,
               ),
               data,
@@ -175,3 +183,6 @@ export class VidavidorraLogo {
     );
   }
 }
+
+export default VidavidorraLogo;
+export { tool, Options };
